@@ -1,0 +1,224 @@
+body {
+    background-image: linear-gradient(to right, #ba5370 , #f9caca);
+    margin: 0;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.437);  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1vh;
+  justify-content: space-between;
+  height: 5vh;
+}
+
+.navBarIcons {
+    height: 4vh;
+}
+
+#leftNavBar {
+    display: flex;
+    align-items: center;
+}
+
+#toDue {
+    position: absolute;
+    pointer-events: none;
+    left:0;
+    right:0;
+
+}
+
+h1 {
+   text-align: center;
+   margin-top: 0;
+   margin-bottom: 0;
+   color:rgba(255, 255, 255, 0.849);
+   font-size: 4vh;
+   font-family: 'Barlow', sans-serif;
+}
+span {
+    color: rgb(216, 153, 188);
+}
+.buttons {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+#searchBox{
+    background: none;
+    border: none;
+    height: 100%;
+    width: 15vw;
+    font-size: 2.3vh;
+    font-family: 'Barlow', sans-serif;
+    color: rgb(115, 115, 115);
+    font-weight: 900;
+}
+
+#mag{
+    border: none;
+    background: none;
+}
+
+#magImg {
+    height: 3vh;
+}
+
+#searchDiv{
+    background-color: rgba(255, 192, 203, 0.577);
+    margin-left: 1vw;
+    border-radius: .3em;
+}
+
+#searchDiv:hover {
+    background-color: rgba(255, 255, 255, 0.383);
+}
+
+#filter {
+    text-align: right; 
+    margin: 0;
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bolder;
+    color: rgb(187, 126, 160);
+    transform: scale(1.5);
+    margin-right: 5.5vh;
+}
+
+#filterOptions {
+    border: 0;
+}
+
+#filterBtn{
+    margin-left: .5vh;
+    border-radius: 10vw;
+    border: none;
+    background-color: rgba(244, 170, 170, 0.704);
+    font-family: 'Barlow', sans-serif;
+    color: rgb(135, 88, 114);
+    font-weight: bolder;
+  
+}
+
+#filterBtn:hover{
+    background-color: rgba(255, 255, 255, 0.206);
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh;
+    height:100%;
+}
+#addItemContainer{
+    margin-top: 1.5%;
+}
+
+#listsContainer {
+    margin-top: 2%;
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#doneContainer {
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.086);
+}
+#notDoneContainer {
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.125);
+}
+
+#taskTextBox {
+    border: none;
+    border-radius: .5em;
+    width: 50vw;
+    font-size: 2em;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bolder;
+}
+
+#taskTextBox:hover {
+    background-color: rgb(227, 215, 222);
+}
+
+.tasks{
+    margin-bottom: 1vh;
+}
+
+input{
+    color: rgb(111, 107, 107);
+}
+input:focus{
+    outline: none;
+}
+
+h2 {
+    font-family: 'Barlow', sans-serif;
+    color: white;
+    font-size: 3em;
+}
+h2 img {
+    width: 1em;
+    margin-left: 1em;
+}
+
+.tasks{
+    color: rgb(108, 108, 108);
+    font-size: 1.7em;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    border-radius: .5em;
+    border: none;
+    width: 80%;
+}
+
+.tasks:hover{
+    background-color: rgba(255, 0, 128, 0.121);
+    color:white;
+}
+
+.iconButton {
+    background: transparent;
+    border: none;
+}
+#xIconWithBorder{
+    border-style: solid;
+    border-radius: 1em;
+    padding: 1%;
+    width: .5em;
+}
+
+.xIcon {
+    height: 1.8em;
+}
+
+.xIcon:hover{
+    background-color: #ef6464;
+    border-radius: 50%;
+    transform: scale(1.5);
+}
+
+.pencilIcon:hover{
+    background-color: #ef6464;
+    border-radius: 50%;
+    transform: scale(1.3);
+}
+
+.hidden {
+    display: none;
+}
+
+form {
+    display: inline;
+}
+
+#updateTaskForm {
+    display: none;
+}
+

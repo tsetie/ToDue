@@ -1,0 +1,84 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title ToDue!
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,100&display=swap' rel='stylesheet')
+  style.
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,100&display=swap');
+  link(rel='stylesheet' href='/resources/css/project.css')
+body
+    nav
+      div#leftNavBar 
+        a(href='/home') 
+          img.navBarIcons(src='/resources/images/home.png')
+        div#searchDiv 
+          form(action="/search")
+            input#searchBox(name="search" placeholder="Search" required)
+            button#mag 
+              img.navBarIcons#magImg(src='/resources/images/mag.png')
+      h1#toDue
+        | To
+        span Due
+      if search == NULL 
+        form#filter(action='/filter' method="POST")
+          fieldset#filterOptions
+            input(type='radio' name='option' value='All' required)
+            label(for='All') All
+            input(type='radio' name='option' value='done')
+            label(for='done') Done
+            input(type='radio' name='option' value='notDone')
+            label(for='notDone') Not Done
+            button#filterBtn Filter
+    #container
+      if search == NULL
+        #addItemContainer
+          form(action='/addItem' method="POST")
+            input#taskTextBox(name='newTask' placeholder='      +   Add Task' required='' )
+            input.hidden(type="submit")
+      else if done.length == 0 && notDone.length == 0
+        h1 No results found
+      else 
+        h1 Results for "#{search}" 
+      #listsContainer
+        if done != NULL     
+          #doneContainer
+            h2
+              | Done 
+              img(src='/resources/images/checkmark-removebg-preview.png')
+            each obj in done 
+              form(action='/markNotDone' method="POST")
+                button.tasks(type='submit' value='done') #{obj.task}
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+              form(action='/editTask' method="POST")
+                button.iconButton( id='editBtn' type='submit' value='edit' onclick='openUpdateForm') 
+                  img.pencilIcon(src='resources/images/pencil.png')
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+              form(action='/deleteTask' method="POST")
+                button.iconButton(type='submit' value='delete')
+                  img.xIcon(src='/resources/images/x.png')
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+        if notDone != NULL
+          #notDoneContainer
+            h2
+              | Not done 
+              img#xIconWithBorder(src='/resources/images/x.png') 
+            each obj in notDone 
+              form(action='/markDone' method="POST")
+                button.tasks#markDone(type='submit' value='{done}') #{obj.task}
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+              form(action='/editTask' method="POST")
+                button.iconButton(type='submit' value='edit' onclick='openUpdateForm') 
+                  img.pencilIcon(src='resources/images/pencil.png')
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+              form(action='/deleteTask' method="POST")
+                button.iconButton(type='submit' value='delete')
+                  img.xIcon(src='/resources/images/x.png')
+                input(type="hidden" name="taskNumber" id="taskNumber" value=obj.taskNum)
+      div#updateTaskForm
+        form(action='/updateTask' method='POST')
+          input(name='updatedTask')
+          button(type='submit' value='cancel') Cancel
+          button(type='submit' value='Update' onclick='closeUpdateTaskForm()') Update
+          

@@ -1,0 +1,6 @@
+'CREATE TABLE ToDue (
+  taskNum INT NOT NULL,
+  task VARCHAR(300) NOT NULL,
+  done TINYINT(1) NOT NULL,
+  PRIMARY KEY (taskNum));
+'
